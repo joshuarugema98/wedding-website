@@ -2,17 +2,22 @@
 
 The hero uses the locally selected `public/images/cover.JPG`, a hillside couple
 portrait. Its pixels are unchanged; CSS adds the linen fade and overlapping text.
-The Things You Might Not Know uses the five user-supplied photographs below,
-in question order. The original files are unchanged; each image uses its natural
-aspect ratio at a consistent width, without a fixed portrait frame or empty bands.
+The photo section before The Things You Might Not Know uses the five supplied
+photographs below. The original files are unchanged. Desktop displays all five
+in a clickable collage, using individual focal points to guide cropping. Clicking
+opens the complete image in a desktop lightbox with navigation through all five.
+Mobile retains a
+fixed-height stage showing the complete image over a blurred decorative copy,
+with translucent arrows overlaid at the frame's edges. Images are imported in
+`src/lib/photos.ts` and are independent of the questions.
 Static imports use the exact filename casing and
 produce content-hashed URLs so file replacements bypass older optimized copies.
 
-- `public/images/1.jpg`: beach walk photograph; Who fell first?
-- `public/images/22.jpg`: kayaking photograph; What would our friends say?
-- `public/images/33.jpg`: beach embrace photograph; When did it become serious?
-- `public/images/4.jpg`: waterfront photograph; What should never change?
-- `public/images/5.jpg`: black-and-white beach photograph; Looking forward to marriage.
+- `public/images/1.jpg`: beach walk photograph.
+- `public/images/22.jpg`: kayaking photograph.
+- `public/images/33.jpg`: beach embrace photograph.
+- `public/images/4.jpg`: waterfront photograph.
+- `public/images/5.jpg`: black-and-white beach photograph.
 
 The three older generated photographs below are retained but no longer displayed.
 Their built-in image_gen prompt set is recorded in

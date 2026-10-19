@@ -31,8 +31,10 @@ npm start
 - `src/app/page.tsx`: celebration schedules, guest details, scripture, contacts.
 - `src/lib/wedding.ts`: confirmed wedding data, maps, and phone numbers.
 - `src/components/our-story.tsx`: the couple's full story, with a short visible opening and a native inline disclosure divided into four chapters.
-- `src/components/about-us.tsx`: The Things You Might Not Know, a five-question portrait-photo carousel with keyboard controls and an inline expansion for the third answer.
-- `src/lib/about-us.ts`: the supplied Q&As, speaker labels, and static image imports.
+- `src/components/photo-carousel.tsx`: clickable desktop collage with a full-screen lightbox and independent mobile carousel, with translucent edge arrows and keyboard controls.
+- `src/lib/photos.ts`: content-hashed static photo imports, descriptions, and collage focal points.
+- `src/components/about-us.tsx`: The Things You Might Not Know, a list of all five questions and full answers.
+- `src/lib/about-us.ts`: the supplied Q&As and speaker labels.
 - `src/components/navigation.tsx`: floating monogram and Menu control, opening a numbered side panel.
 - `src/components/hero.tsx`: text overlapping the cover photo's linen fade from the left on desktop. On mobile, larger names cross the photo's lower edge, with the date and scripture flowing below. The mobile fade occupies the bottom 18% of the photo.
 - `src/app/globals.css`: shared design tokens and responsive styles.
@@ -40,20 +42,25 @@ npm start
 - `public/images/*-placeholder.webp`: replaceable placeholder photography.
 
 The active image paths are recorded in `docs/images.md`. The hero uses the locally
-selected `public/images/cover.JPG`. The Q&A carousel uses the five user-supplied
-photographs in their original order and preserves the full supplied answers.
-Each photograph uses its natural aspect ratio at a consistent width, with controls
-beneath the image and text flowing naturally alongside or below. Older generated and
-stock placeholders are retained locally but are no longer displayed.
+selected `public/images/cover.JPG`. A separate carousel between Our Story and the
+questions uses the five supplied photos. Desktop shows all five in an asymmetric
+collage. Clicking a desktop photo opens its uncropped view in a modal lightbox;
+edge arrows and keyboard arrows browse all five. Escape, the close button, or
+the surrounding backdrop closes it and returns focus to the clicked photo.
+Mobile keeps a fixed-height stage showing the full photo over a blurred
+decorative copy, with translucent arrows at the left and right edges.
+All five questions and answers are visible in the list below. Older generated
+and stock placeholders are retained locally but are no longer displayed.
 Carousel photographs use content-hashed static imports so replacing a file updates
 its browser URL automatically. To use a different filename, update its import in
-`src/lib/about-us.ts`, matching the filename's exact casing.
+`src/lib/photos.ts`, matching the filename's exact casing.
 
 The design reference study and earlier activity research are recorded in
 `docs/design-reference.md`. Explore Rwanda links directly to Visit Rwanda rather
 than displaying an activity grid. Travel and Explore Rwanda appear last, after
-the wedding details and phone-only contacts. The carousel changes the image and
-Q&A together, wraps in both directions, and has no autoplay or animation.
+the wedding details and phone-only contacts. The mobile photo carousel wraps
+in both directions, with no autoplay or animation. The questions use a two-column
+layout on desktop and stack above their answers on mobile.
 Calendar actions use filled rectangular buttons; directions use text links.
 The Gift Registry section includes a welcome note and a direct contact link for
 monetary gifts. Registry availability shows a coming-soon message. Set

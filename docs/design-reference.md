@@ -1,16 +1,26 @@
 # Independent design direction
 
-The Things You Might Not Know replaces the About Us title and placeholder Q&As.
-Five slides use the complete supplied answers and images 1–5 in question order.
-Named responses have clear speaker labels. The third slide initially shows Joshua's
-answer, with Sandrine's response and the conclusion behind a native Read more
-disclosure. Photos use their natural aspect ratios at a consistent width, so
-landscape photos are shorter and portraits are taller without empty bands or
-cropping. Controls sit directly beneath the photo; expanding an answer does not
-move them. Text has natural height.
-The section keeps its existing #about anchor and the shared linen background.
+The photos and Q&As are separate sections. After Our Story, desktop shows all five
+photos in an asymmetric collage: a large portrait on the left and a 2×2 group to
+the right. Individual focal points guide crops. At 760px and below, the collage
+is replaced by the fixed-height carousel (480px tablet, 440px phone). The complete
+photo sits over a blurred copy, with 50% opaque linen arrow backgrounds at the
+edges, increasing to 75% on hover or focus. Each desktop collage photo opens a
+full-screen native modal dialog with an uncropped image, translucent edge arrows,
+a close button, and a photo counter over a dark translucent backdrop. Keyboard
+arrows wrap through all five; Escape or a backdrop click closes the dialog and
+returns focus to the clicked photo. The page cannot scroll behind the dialog.
+Resizing to mobile closes it, leaving the existing mobile carousel unchanged.
+Switching remains instant, with no autoplay or animation.
+The Things You Might Not Know follows as a continuous list of all five questions
+and complete answers, including both perspectives on question three. Questions
+sit beside answers on desktop and above them on mobile. Speaker labels remain.
+The section heading is 44–48px on desktop and 36px on mobile, questions are
+24–26px and 22px respectively, and answer text remains 18px and 17px.
+The sections share the linen canvas; #photos and the existing #about anchor are
+independent. Content-hashed imports remain in src/lib/photos.ts.
 
-Our Story sits directly below the hero, before the About Us carousel. The italic
+Our Story sits directly below the hero, before the photo carousel. The italic
 opening and first paragraph are visible initially. A native details/summary
 control expands the rest inline, with four chapters: The mysterious note,
 Different continents, The yellow jacket, and The waterfront. The supplied text

@@ -1,6 +1,7 @@
 import { Navigation } from '@/components/navigation'
 import { Hero } from '@/components/hero'
 import { OurStory } from '@/components/our-story'
+import { PhotoCarousel } from '@/components/photo-carousel'
 import { AboutUs } from '@/components/about-us'
 import { ArrowIcon, CalendarIcon, PinIcon } from '@/components/icons'
 import { events, wedding } from '@/lib/wedding'
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <main id="main">
         <OurStory />
+        <PhotoCarousel />
         <AboutUs />
         <section
           className="schedule-section"

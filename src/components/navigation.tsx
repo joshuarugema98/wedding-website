@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 const links = [
   ['Home', '#home'],
   ['Our Story', '#our-story'],
+  ['Photos', '#photos'],
   ['The Things You Might Not Know', '#about'],
   ['Schedule', '#celebrations'],
   ['Gift Registry', '#registry'],
