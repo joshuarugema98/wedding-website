@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Joshua and Sandrine//Wedding Celebrations//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:church-20261220@joshuasandrine.wedding
+DTSTAMP:20261017T182009Z
+DTSTART:20261220T120000Z
+SUMMARY:Wedding ceremony - Joshua and Sandrine
+LOCATION:Kaleb Garden\, Rebero\, KK 30 Avenue\, Kigali\, Rwanda
+DESCRIPTION:Church ceremony. 2:00 PM Kigali local time (UTC+2). Contacts: 0
+ 788 307 830 / 0788 353 322.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:reception-20261220@joshuasandrine.wedding
+DTSTAMP:20261017T182009Z
+DTSTART:20261220T140000Z
+SUMMARY:Wedding reception - Joshua and Sandrine
+LOCATION:Kaleb Garden\, Rebero\, KK 30 Avenue\, Kigali\, Rwanda
+DESCRIPTION:Wedding reception. 4:00 PM Kigali local time (UTC+2). Contacts:
+  0788 307 830 / 0788 353 322.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

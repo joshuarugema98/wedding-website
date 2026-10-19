@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Joshua and Sandrine//Wedding Celebrations//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:gusaba-20261218@joshuasandrine.wedding
+DTSTAMP:20261017T182009Z
+DTSTART:20261218T120000Z
+SUMMARY:Gusaba - Joshua and Sandrine
+LOCATION:Heaven Garden Rebero\, 233H+C54\, Kigali\, Rwanda
+DESCRIPTION:Traditional ceremony. 2:00 PM Kigali local time (UTC+2). Hosted
+  by the families of Gerald Rutagarama and Raphael Hakizimana. Contacts: Sa
+ ndrine 0788 769 004 / Charity 0785 652 048.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

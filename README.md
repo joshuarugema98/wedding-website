@@ -1,43 +1,64 @@
-# Wedding website
+# Joshua & Sandrine
 
-A minimal React + TypeScript website built with Vite, ready for your wedding information.
+A static, photography-led wedding website for the Gusaba on 18 December 2026 and
+wedding ceremony and reception on 20 December 2026 in Kigali, Rwanda.
 
-## Getting started
+Built with Next.js App Router, React, strict TypeScript, and Tailwind CSS 4.
+Georgia headings pair with Lato, bundled locally through Fontsource. One warm
+linen surface and quiet tonal controls give the page a continuous, light feel. There is no
+3D rendering, animation, or motion library.
 
-Use Node.js 24 LTS or a compatible newer release, with npm.
+## Development
+
+Use Node.js 24 or newer.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. Changes in `src/` reload automatically.
+Open the address printed by Next.js, normally http://localhost:3000.
 
-## Commands
+```sh
+npm run typecheck
+npm run lint
+npm run build
+npm start
+```
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Check TypeScript and build production files into `dist/` |
-| `npm run lint` | Run Oxlint, including React hooks rules |
-| `npm run preview` | Preview the production build locally |
+## Editing
 
-## Customize
+- `src/app/page.tsx`: celebration schedules, guest details, scripture, contacts.
+- `src/lib/wedding.ts`: confirmed wedding data, maps, and phone numbers.
+- `src/components/our-story.tsx`: the couple's full story, with a short visible opening and a native inline disclosure divided into four chapters.
+- `src/components/about-us.tsx`: The Things You Might Not Know, a five-question portrait-photo carousel with keyboard controls and an inline expansion for the third answer.
+- `src/lib/about-us.ts`: the supplied Q&As, speaker labels, and static image imports.
+- `src/components/navigation.tsx`: floating monogram and Menu control, opening a numbered side panel.
+- `src/components/hero.tsx`: text overlapping the cover photo's linen fade from the left on desktop. On mobile, larger names cross the photo's lower edge, with the date and scripture flowing below. The mobile fade occupies the bottom 18% of the photo.
+- `src/app/globals.css`: shared design tokens and responsive styles.
+- `public/calendar/`: calendars with UTC timestamps matching Kigali local times.
+- `public/images/*-placeholder.webp`: replaceable placeholder photography.
 
-- `src/App.tsx`: starter wedding content and information sections.
-- `src/App.css`: page layout and styles.
-- `src/index.css`: global styles.
-- `index.html`: page title and description.
-- `public/`: static assets served directly, such as wedding photos.
+The active image paths are recorded in `docs/images.md`. The hero uses the locally
+selected `public/images/cover.JPG`. The Q&A carousel uses the five user-supplied
+photographs in their original order and preserves the full supplied answers.
+Each photograph uses its natural aspect ratio at a consistent width, with controls
+beneath the image and text flowing naturally alongside or below. Older generated and
+stock placeholders are retained locally but are no longer displayed.
+Carousel photographs use content-hashed static imports so replacing a file updates
+its browser URL automatically. To use a different filename, update its import in
+`src/lib/about-us.ts`, matching the filename's exact casing.
 
-React and React DOM are the runtime dependencies. Vite, TypeScript, the React
-plugin, type definitions, and Oxlint provide the development tooling. TypeScript
-strict mode is enabled.
+The design reference study and earlier activity research are recorded in
+`docs/design-reference.md`. Explore Rwanda links directly to Visit Rwanda rather
+than displaying an activity grid. Travel and Explore Rwanda appear last, after
+the wedding details and phone-only contacts. The carousel changes the image and
+Q&A together, wraps in both directions, and has no autoplay or animation.
+Calendar actions use filled rectangular buttons; directions use text links.
+The Gift Registry section includes a welcome note and a direct contact link for
+monetary gifts. Registry availability shows a coming-soon message. Set
+`wedding.registryUrl` in `src/lib/wedding.ts` to display the external registry link.
 
-Date, venue, schedule, travel, and RSVP content are placeholders. The starter
-does not collect RSVPs yet.
-
-For a fresh checkout, use `npm ci` to install the versions in `package-lock.json`.
-The generated `dist/` directory can be deployed to a static website host.
-
-Vite reference: https://vite.dev/guide/
+Directions open Google Maps. Contacts use tap-to-call links. Calendar downloads
+include the Gusaba and both wedding-day moments. No RSVP submission service is
+connected. Search indexing is disabled in the root layout metadata.
