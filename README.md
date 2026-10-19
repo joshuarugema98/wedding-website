@@ -30,13 +30,13 @@ npm start
 
 - `src/app/page.tsx`: celebration schedules, guest details, scripture, contacts.
 - `src/lib/wedding.ts`: confirmed wedding data, maps, and phone numbers.
-- `src/components/our-story.tsx`: the couple's full story, with a short visible opening and a native inline disclosure divided into four chapters.
+- `src/components/our-story.tsx`: the couple's full story, with a short visible opening and a native inline disclosure flowing as continuous paragraphs without chapter headings.
 - `src/components/photo-carousel.tsx`: clickable desktop collage with a full-screen lightbox and independent mobile carousel, with translucent edge arrows and keyboard controls.
 - `src/lib/photos.ts`: content-hashed static photo imports, descriptions, and collage focal points.
 - `src/components/about-us.tsx`: The Things You Might Not Know, a list of all five questions and full answers.
 - `src/lib/about-us.ts`: the supplied Q&As and speaker labels.
 - `src/components/navigation.tsx`: floating monogram and Menu control, opening a numbered side panel.
-- `src/components/hero.tsx`: text overlapping the cover photo's linen fade from the left on desktop. On mobile, larger names cross the photo's lower edge, with the date and scripture flowing below. The mobile fade occupies the bottom 18% of the photo.
+- `src/components/hero.tsx`: text overlapping the cover photo's linen fade from the left on desktop. On mobile, the bottom-anchored photo clips the upper 15% of its previous view without increasing its scale; larger names overlap the shorter frame by 48px, with the date and scripture flowing below. The mobile fade starts at 70% of the visible frame and reaches solid linen at 98%.
 - `src/app/globals.css`: shared design tokens and responsive styles.
 - `public/calendar/`: calendars with UTC timestamps matching Kigali local times.
 - `public/images/*-placeholder.webp`: replaceable placeholder photography.
@@ -61,11 +61,16 @@ than displaying an activity grid. Travel and Explore Rwanda appear last, after
 the wedding details and phone-only contacts. The mobile photo carousel wraps
 in both directions, with no autoplay or animation. The questions use a two-column
 layout on desktop and stack above their answers on mobile.
-Calendar actions use filled rectangular buttons; directions use text links.
+View map uses text links; calendar buttons are omitted.
+When & where uses centred green event cards with linen text on the linen canvas,
+side by side on desktop and stacked on mobile. Short invitation introductions
+welcome guests to each celebration. View map links with external arrows sit at
+the bottom of each card. Dates, times, venues, and addresses
+are preserved; View map opens the corresponding venue in Google Maps.
 The Gift Registry section includes a welcome note and a direct contact link for
 monetary gifts. Registry availability shows a coming-soon message. Set
 `wedding.registryUrl` in `src/lib/wedding.ts` to display the external registry link.
 
-Directions open Google Maps. Contacts use tap-to-call links. Calendar downloads
+Directions open Google Maps. Contacts use tap-to-call links. Retained calendar files
 include the Gusaba and both wedding-day moments. No RSVP submission service is
 connected. Search indexing is disabled in the root layout metadata.

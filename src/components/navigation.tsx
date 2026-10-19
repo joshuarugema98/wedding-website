@@ -7,7 +7,7 @@ const links = [
   ['Our Story', '#our-story'],
   ['Photos', '#photos'],
   ['The Things You Might Not Know', '#about'],
-  ['Schedule', '#celebrations'],
+  ['When & where', '#celebrations'],
   ['Gift Registry', '#registry'],
   ['Contact', '#contact'],
   ['Travel', '#guests'],

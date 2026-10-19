@@ -22,8 +22,8 @@ independent. Content-hashed imports remain in src/lib/photos.ts.
 
 Our Story sits directly below the hero, before the photo carousel. The italic
 opening and first paragraph are visible initially. A native details/summary
-control expands the rest inline, with four chapters: The mysterious note,
-Different continents, The yellow jacket, and The waterfront. The supplied text
+control expands the rest inline as continuous paragraphs without chapter titles.
+The supplied text
 is preserved, including the note, yellow jacket, Warakuze, and waterfront passages.
 The control changes from Read our story to Show less. The section shares the same
 linen canvas, uses a comfortable reading width, and adds no animation or modal.
@@ -31,9 +31,13 @@ linen canvas, uses a comfortable reading width, and adds no animation or modal.
 18 October 2026: the hero now integrates the names, date, and scripture inside
 the cover photograph's area. A left-edge linen fade sits behind desktop text;
 on mobile, the photo and copy flow vertically, with larger names overlapping the
-photo's lower edge by 64px. The date and scripture follow on the linen background
-at readable sizes. The photo stays unfaded through 82% of its height, then blends
-into linen at its bottom edge. The hero grows with its content instead of fitting
+photo's lower edge by 48px. The mobile frame is 15% shorter, using
+clamp(442px, 62.9svh, 646px). An inner image frame keeps the previous full height
+at 117.647% of the visible frame and anchors to the bottom, clipping the upper
+15% without adding zoom. The photo uses bottom-center positioning to preserve
+the lower scene. The date and scripture follow on the linen background
+at readable sizes. The photo stays unfaded through 70% of its visible frame, then blends
+into solid linen by 98%, with 90% opacity at 86%. The hero grows with its content instead of fitting
 everything into a fixed viewport. Desktop styling is unchanged.
 The current `public/images/cover.JPG` is retained. Its inaccurate generated-image
 caption is removed and alt text describes the actual hillside scene. No raster
@@ -42,8 +46,21 @@ image changes or animation are introduced.
 Current refinement: a single warm linen canvas replaces the distinct sand, sage,
 and clay panels. Story copy, schedules, registry, contacts, and footer share the
 same surface, with muted green-gray text, subtle rules, and light tonal controls.
-Event cards no longer have separate fills or heavy accent borders. Content widths
-align across sections. Gift Registry follows the schedule and shows a coming-soon
+When & where has a centred heading and two equal-height event cards reversing the
+page colours: the existing green ink (#4b5047) becomes the card background and the
+linen page colour (#e9e5dc) becomes every card's text, icons, and focus outlines.
+The surrounding canvas stays linen. Cards sit side by side on desktop and stack on mobile.
+Each centres its small event label, serif title, short invitation introduction,
+confirmed date, time, venue, and address. Gusaba uses Introduction & dowry as its
+label, with a welcome to the traditional Rwandan engagement ceremony; the wedding
+invites guests to witness the vows and celebrate with dining and dancing.
+Letter-spaced View map links with external arrows sit at the bottom; calendar
+buttons are removed. View map opens the corresponding venue in Google Maps.
+Card dates are 15% larger (16.1px desktop, 14.95px phone); times and venue names
+are 10% smaller (23.4px Gusaba time, 21.6px wedding times and desktop venues,
+20.7px phone venues). Address and time-label sizes remain unchanged.
+No attire requirements are added. Content widths align across
+sections. Gift Registry follows the schedule and shows a coming-soon
 message because the user has no registry link yet; `wedding.registryUrl` enables
 the real external link later. Travel remains last.
 

@@ -25,67 +25,55 @@ export function OurStory() {
             <span className="our-story-read-less">Show less</span>
             <span className="our-story-toggle-icon" aria-hidden="true" />
           </summary>
-          <div className="our-story-chapters">
-            <section aria-labelledby="story-note-title">
-              <h3 id="story-note-title">The mysterious note</h3>
-              <p>
-                To this day, he denies having anything to do with the note. I
-                remain unconvinced.
-              </p>
-            </section>
-            <section aria-labelledby="story-continents-title">
-              <h3 id="story-continents-title">Different continents</h3>
-              <p>
-                Fast-forward a few years. We had graduated, I had moved to
-                Canada for university, and Joshua had moved to China. We kept in
-                touch, loosely. A birthday message here, a comment on an
-                Instagram post there. Nothing particularly remarkable.
-              </p>
-              <p>
-                Then, in 2020, Joshua transferred to my university in Canada. A
-                coincidence, he might say. I have my own theories.
-              </p>
-            </section>
-            <section aria-labelledby="story-jacket-title">
-              <h3 id="story-jacket-title">The yellow jacket</h3>
-              <p>
-                One freezing winter morning, I was walking to class, watching my
-                steps, when I looked up and saw a very familiar face. There
-                stood Joshua, in a red hoodie and a rather questionable yellow
-                winter jacket.
-              </p>
-              <p>
-                My first thought was how much taller he’d become. My second was
-                about the jacket.
-              </p>
-              <p>
-                Before I knew it, my feet had decided we were going to say
-                hello, whether or not my brain had agreed. We hugged, and after
-                three years apart, with any number of intelligent things I could
-                have said, all I managed was <em>“Warakuze”</em> — Kinyarwanda
-                for “You’ve grown.”
-              </p>
-              <p>
-                I don’t remember what he said back. I do remember his smile.
-              </p>
-            </section>
-            <section aria-labelledby="story-waterfront-title">
-              <h3 id="story-waterfront-title">The waterfront</h3>
-              <p>
-                With mutual friends and the same church, we began seeing more of
-                each other. It wasn’t until early 2021, though, that we finally
-                spent time together without our friends. We went to the cinema,
-                then ended up sitting in the car by the downtown waterfront,
-                talking for hours.
-              </p>
-              <p>
-                Somewhere between that evening and the many conversations that
-                followed, things began to change. Occasional messages became
-                daily conversations. Busy university schedules and work didn’t
-                stop us from finding time for each other every weekend.
-              </p>
-              <p>And, well, here we are.</p>
-            </section>
+          <div className="our-story-continuation">
+            <p>
+              To this day, he denies having anything to do with the note. I
+              remain unconvinced.
+            </p>
+            <p>
+              Fast-forward a few years. We had graduated, I had moved to
+              Canada for university, and Joshua had moved to China. We kept in
+              touch, loosely. A birthday message here, a comment on an
+              Instagram post there. Nothing particularly remarkable.
+            </p>
+            <p>
+              Then, in 2020, Joshua transferred to my university in Canada. A
+              coincidence, he might say. I have my own theories.
+            </p>
+            <p>
+              One freezing winter morning, I was walking to class, watching my
+              steps, when I looked up and saw a very familiar face. There
+              stood Joshua, in a red hoodie and a rather questionable yellow
+              winter jacket.
+            </p>
+            <p>
+              My first thought was how much taller he’d become. My second was
+              about the jacket.
+            </p>
+            <p>
+              Before I knew it, my feet had decided we were going to say
+              hello, whether or not my brain had agreed. We hugged, and after
+              three years apart, with any number of intelligent things I could
+              have said, all I managed was <em>“Warakuze”</em> — Kinyarwanda
+              for “You’ve grown.”
+            </p>
+            <p>
+              I don’t remember what he said back. I do remember his smile.
+            </p>
+            <p>
+              With mutual friends and the same church, we began seeing more of
+              each other. It wasn’t until early 2021, though, that we finally
+              spent time together without our friends. We went to the cinema,
+              then ended up sitting in the car by the downtown waterfront,
+              talking for hours.
+            </p>
+            <p>
+              Somewhere between that evening and the many conversations that
+              followed, things began to change. Occasional messages became
+              daily conversations. Busy university schedules and work didn’t
+              stop us from finding time for each other every weekend.
+            </p>
+            <p>And, well, here we are.</p>
           </div>
         </details>
       </div>

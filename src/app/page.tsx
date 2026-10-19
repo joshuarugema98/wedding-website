@@ -3,7 +3,7 @@ import { Hero } from '@/components/hero'
 import { OurStory } from '@/components/our-story'
 import { PhotoCarousel } from '@/components/photo-carousel'
 import { AboutUs } from '@/components/about-us'
-import { ArrowIcon, CalendarIcon, PinIcon } from '@/components/icons'
+import { ArrowIcon, PinIcon } from '@/components/icons'
 import { events, wedding } from '@/lib/wedding'
 
 export default function Home() {
@@ -23,30 +23,20 @@ export default function Home() {
           id="celebrations"
           aria-labelledby="celebrations-title"
         >
-          <h2 id="celebrations-title">Schedule</h2>
+          <h2 id="celebrations-title">When & where</h2>
           <div className="schedule-days">
             <article className="schedule-day" aria-labelledby="gusaba-title">
-              <p className="schedule-date">Friday, December 18, 2026</p>
-              <h3 id="gusaba-title">Gusaba — Traditional Ceremony</h3>
-              <p className="event-time">2:00 PM</p>
-              <div className="event-actions">
-                <a
-                  className="event-button"
-                  href="/calendar/gusaba.ics"
-                  download
-                >
-                  <CalendarIcon />
-                  Add to Calendar
-                </a>
-                <a
-                  className="directions-link"
-                  href={events.gusaba.map}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <PinIcon />
-                  Directions
-                </a>
+              <header className="event-heading">
+                <p className="event-label">Introduction & dowry</p>
+                <h3 id="gusaba-title">Gusaba</h3>
+              </header>
+              <p className="event-intro">
+                Join us as we celebrate the traditional Rwandan engagement
+                ceremony, where our families formally meet.
+              </p>
+              <p className="schedule-date">{events.gusaba.date}</p>
+              <div className="event-timing">
+                <p className="event-time">{events.gusaba.time}</p>
               </div>
               <a
                 className="venue-link"
@@ -60,36 +50,35 @@ export default function Home() {
                   <small>{events.gusaba.address}</small>
                 </span>
               </a>
+              <div className="event-actions">
+                <a
+                  className="event-map-link"
+                  href={events.gusaba.map}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View map to Heaven Garden Rebero"
+                >
+                  View map <ArrowIcon />
+                </a>
+              </div>
             </article>
             <article className="schedule-day" aria-labelledby="wedding-title">
-              <p className="schedule-date">Sunday, December 20, 2026</p>
-              <h3 id="wedding-title">Wedding Ceremony & Reception</h3>
-              <div className="wedding-times">
+              <header className="event-heading">
+                <p className="event-label">Church & reception</p>
+                <h3 id="wedding-title">Wedding Ceremony</h3>
+              </header>
+              <p className="event-intro">
+                Witness as we exchange our vows, followed by an evening of
+                dining, dancing, and joy.
+              </p>
+              <p className="schedule-date">{events.wedding.date}</p>
+              <div className="event-timing wedding-times">
                 <p>
                   <span>Church Ceremony</span>2:00 PM
                 </p>
                 <p>
                   <span>Reception</span>4:00 PM
                 </p>
-              </div>
-              <div className="event-actions">
-                <a
-                  className="event-button"
-                  href="/calendar/wedding.ics"
-                  download
-                >
-                  <CalendarIcon />
-                  Add to Calendar
-                </a>
-                <a
-                  className="directions-link"
-                  href={events.wedding.map}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <PinIcon />
-                  Directions
-                </a>
               </div>
               <a
                 className="venue-link"
@@ -103,6 +92,17 @@ export default function Home() {
                   <small>{events.wedding.address}</small>
                 </span>
               </a>
+              <div className="event-actions">
+                <a
+                  className="event-map-link"
+                  href={events.wedding.map}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View map to Kaleb Garden"
+                >
+                  View map <ArrowIcon />
+                </a>
+              </div>
             </article>
           </div>
           <p className="timezone">
