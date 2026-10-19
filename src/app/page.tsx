@@ -23,7 +23,7 @@ export default function Home() {
           id="celebrations"
           aria-labelledby="celebrations-title"
         >
-          <h2 id="celebrations-title">When & where</h2>
+          <h2 id="celebrations-title">When & Where</h2>
           <div className="schedule-days">
             <article className="schedule-day" aria-labelledby="gusaba-title">
               <header className="event-heading">
@@ -118,10 +118,20 @@ export default function Home() {
           <h2 id="registry-title">Gift Registry</h2>
           <div className="registry-copy">
             <p>
-              Your presence in our lives means the world to us. As we build our
-              home together, we’re choosing a few meaningful pieces to enjoy for
-              years to come.
+              Your presence on our special day is the greatest gift we could
+              ask for. As we will be returning to Canada after the celebration,
+              we kindly ask that you do not bring physical gifts.
             </p>
+            <p>
+              If you would like to bless us with a gift, we have put together a
+              registry with items that can be sent directly to us. Monetary
+              gifts are also warmly appreciated; please{' '}
+              <a className="registry-contact-link" href="#contact">
+                contact us directly
+              </a>{' '}
+              if this is your preference.
+            </p>
+            <p>We look forward to celebrating with you!</p>
             {wedding.registryUrl ? (
               <a
                 className="registry-link"
@@ -134,14 +144,6 @@ export default function Home() {
             ) : (
               <p>Registry details will be shared here soon.</p>
             )}
-            <p>
-              Monetary gifts are also welcome. If you prefer to give this way,
-              please{' '}
-              <a className="registry-contact-link" href="#contact">
-                contact us directly
-              </a>
-              . Thank you for your love and generosity.
-            </p>
           </div>
         </section>
 

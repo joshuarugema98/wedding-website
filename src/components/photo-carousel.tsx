@@ -69,7 +69,11 @@ export function PhotoCarousel() {
                 src={photo.image}
                 alt={photo.alt}
                 fill
-                sizes="(max-width: 1264px) 33vw, 400px"
+                sizes={
+                  index === couplePhotos.length - 1
+                    ? '(max-width: 1264px) 50vw, 600px'
+                    : '(max-width: 1264px) 33vw, 400px'
+                }
                 style={{ objectPosition: photo.collagePosition }}
               />
             </button>

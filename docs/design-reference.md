@@ -1,14 +1,27 @@
 # Independent design direction
 
-The photos and Q&As are separate sections. After Our Story, desktop shows all five
-photos in an asymmetric collage: a large portrait on the left and a 2×2 group to
-the right. Individual focal points guide crops. At 760px and below, the collage
+Mobile navigation uses a linen hamburger square floating over the hero photograph;
+the old mobile monogram and Menu + controls are hidden. The hero starts 16px below
+the top rather than reserving 90px for the desktop controls. As soon as scrolling starts,
+the same hamburger sits at the left of a fixed full-width linen bar. Eight short
+section links swipe horizontally beside it, with a green active-section underline.
+The linen background is 85% opaque; text and controls stay fully opaque. Returning
+to the very top restores the floating hamburger.
+Scroll position and section resizing update the active link; horizontal adjustment
+keeps that link visible without changing vertical page position. The existing
+native dialog retains every full title and Explore Rwanda. Safe-area padding,
+keyboard focus, and instant switching are retained; desktop controls are unchanged.
+
+The photos and Q&As are separate sections. After Our Story, desktop shows all six
+photos in an asymmetric four-column, two-row collage: a large portrait on the left,
+three supporting tiles across the top, and a portrait plus a wider landscape tile
+along the lower right. Individual focal points guide crops. At 760px and below, the collage
 is replaced by the fixed-height carousel (480px tablet, 440px phone). The complete
 photo sits over a blurred copy, with 50% opaque linen arrow backgrounds at the
 edges, increasing to 75% on hover or focus. Each desktop collage photo opens a
 full-screen native modal dialog with an uncropped image, translucent edge arrows,
 a close button, and a photo counter over a dark translucent backdrop. Keyboard
-arrows wrap through all five; Escape or a backdrop click closes the dialog and
+arrows wrap through all six; Escape or a backdrop click closes the dialog and
 returns focus to the clicked photo. The page cannot scroll behind the dialog.
 Resizing to mobile closes it, leaving the existing mobile carousel unchanged.
 Switching remains instant, with no autoplay or animation.
@@ -60,9 +73,11 @@ Card dates are 15% larger (16.1px desktop, 14.95px phone); times and venue names
 are 10% smaller (23.4px Gusaba time, 21.6px wedding times and desktop venues,
 20.7px phone venues). Address and time-label sizes remain unchanged.
 No attire requirements are added. Content widths align across
-sections. Gift Registry follows the schedule and shows a coming-soon
-message because the user has no registry link yet; `wedding.registryUrl` enables
-the real external link later. Travel remains last.
+sections. Gift Registry follows the schedule with the supplied three-paragraph
+wording, explaining the return to Canada and asking guests not to bring physical
+gifts. View our registry opens the couple's MyRegistry list, configured in
+`wedding.registryUrl`. Monetary gifts retain the direct contact anchor.
+Travel remains last.
 
 ## Previous palette
 

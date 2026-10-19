@@ -2,10 +2,10 @@
 
 The hero uses the locally selected `public/images/cover.JPG`, a hillside couple
 portrait. Its pixels are unchanged; CSS adds the linen fade and overlapping text.
-The photo section before The Things You Might Not Know uses the five supplied
-photographs below. The original files are unchanged. Desktop displays all five
+The photo section before The Things You Might Not Know uses the six supplied
+photographs below. The original files are unchanged. Desktop displays all six
 in a clickable collage, using individual focal points to guide cropping. Clicking
-opens the complete image in a desktop lightbox with navigation through all five.
+opens the complete image in a desktop lightbox with navigation through all six.
 Mobile retains a
 fixed-height stage showing the complete image over a blurred decorative copy,
 with translucent arrows overlaid at the frame's edges. Images are imported in
@@ -18,6 +18,8 @@ produce content-hashed URLs so file replacements bypass older optimized copies.
 - `public/images/33.jpg`: beach embrace photograph.
 - `public/images/4.jpg`: waterfront photograph.
 - `public/images/5.jpg`: black-and-white beach photograph.
+- `public/images/6.jpg`: landscape photograph of the couple running along the beach;
+  shown in a wider desktop tile with its focal point toward the top.
 
 The three older generated photographs below are retained but no longer displayed.
 Their built-in image_gen prompt set is recorded in

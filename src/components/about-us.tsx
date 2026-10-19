@@ -20,7 +20,7 @@ export function AboutUs() {
       id="about"
       aria-labelledby="about-title"
     >
-      <h2 id="about-title">The Things You Might Not Know</h2>
+      <h2 id="about-title">The story behind the story</h2>
       <ol className="question-list" role="list">
         {aboutUsQuestions.map((item, index) => (
           <li className="question-row" key={item.question}>

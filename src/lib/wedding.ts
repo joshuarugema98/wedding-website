@@ -5,8 +5,8 @@ export const wedding = {
   location: 'Kigali, Rwanda',
   // Set this when an RSVP service is available; guest contacts work in the meantime.
   rsvpUrl: null as string | null,
-  // Add the gift registry URL when it is ready.
-  registryUrl: null as string | null,
+  registryUrl:
+    'https://www.myregistry.com/giftlist/sandrineandjoshua' as string | null,
 }
 
 export const events = {

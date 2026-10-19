@@ -16,8 +16,10 @@ const links = [
 
 export function Navigation() {
   const dialog = useRef<HTMLDialogElement>(null)
+  const mobileLinks = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('#home')
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   function closeMenu() {
     dialog.current?.close()
@@ -25,20 +27,73 @@ export function Navigation() {
   }
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const section = entries.find((entry) => entry.isIntersecting)
-        if (section) setActive('#' + section.target.id)
-      },
-      { rootMargin: '-15% 0px -60% 0px', threshold: 0 },
-    )
-    for (const [, href] of links) {
-      if (!href.startsWith('#')) continue
+    const sections = links.flatMap(([, href]) => {
+      if (!href.startsWith('#')) return []
       const element = document.getElementById(href.slice(1))
-      if (element) observer.observe(element)
+      return element ? [element] : []
+    })
+    let pendingFrame: number | null = null
+
+    function updatePosition() {
+      pendingFrame = null
+      const readingLine = Math.min(window.innerHeight * 0.25, 180)
+      let current = '#home'
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= readingLine) {
+          current = '#' + section.id
+        }
+      }
+      if (
+        window.scrollY > 0 &&
+        window.scrollY + window.innerHeight >=
+          document.documentElement.scrollHeight - 2
+      ) {
+        current = '#guests'
+      }
+      setActive(current)
+      setHasScrolled(window.scrollY > 0)
     }
-    return () => observer.disconnect()
+
+    function scheduleUpdate() {
+      if (pendingFrame === null) {
+        pendingFrame = window.requestAnimationFrame(updatePosition)
+      }
+    }
+
+    updatePosition()
+    window.addEventListener('scroll', scheduleUpdate, { passive: true })
+    window.addEventListener('resize', scheduleUpdate)
+    const observer = new ResizeObserver(scheduleUpdate)
+    for (const section of sections) observer.observe(section)
+    return () => {
+      window.removeEventListener('scroll', scheduleUpdate)
+      window.removeEventListener('resize', scheduleUpdate)
+      observer.disconnect()
+      if (pendingFrame !== null) window.cancelAnimationFrame(pendingFrame)
+    }
   }, [])
+
+  useEffect(() => {
+    if (!hasScrolled) return
+    function keepSelectedVisible() {
+      if (!window.matchMedia('(max-width: 760px)').matches) return
+      const nav = mobileLinks.current
+      const selected = nav?.querySelector<HTMLElement>(
+        '[aria-current="location"]',
+      )
+      if (!nav || !selected) return
+      const left = selected.offsetLeft
+      const right = left + selected.offsetWidth
+      if (left < nav.scrollLeft) {
+        nav.scrollTo({ left: Math.max(0, left - 8), behavior: 'auto' })
+      } else if (right > nav.scrollLeft + nav.clientWidth) {
+        nav.scrollTo({ left: right - nav.clientWidth + 8, behavior: 'auto' })
+      }
+    }
+    keepSelectedVisible()
+    window.addEventListener('resize', keepSelectedVisible)
+    return () => window.removeEventListener('resize', keepSelectedVisible)
+  }, [active, hasScrolled])
 
   function openMenu() {
     dialog.current?.showModal()
@@ -57,6 +112,7 @@ export function Navigation() {
         </a>
         <button
           className="menu-trigger"
+          type="button"
           onClick={openMenu}
           aria-label="Open navigation"
           aria-expanded={open}
@@ -65,6 +121,47 @@ export function Navigation() {
           Menu <span aria-hidden="true">+</span>
         </button>
       </header>
+      <div className="mobile-navigation" data-scrolled={hasScrolled}>
+        <button
+          className="mobile-menu-trigger"
+          type="button"
+          onClick={openMenu}
+          aria-label="Open navigation"
+          aria-expanded={open}
+          aria-controls="site-menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+        <nav
+          className="mobile-section-links"
+          ref={mobileLinks}
+          aria-label="Section navigation"
+        >
+          {links
+            .filter(([, href]) => href.startsWith('#'))
+            .map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                aria-current={active === href ? 'location' : undefined}
+                onClick={() => setActive(href)}
+              >
+                {href === '#about'
+                  ? 'About Us'
+                  : href === '#registry'
+                    ? 'Registry'
+                    : label}
+              </a>
+            ))}
+        </nav>
+      </div>
       <dialog
         id="site-menu"
         ref={dialog}

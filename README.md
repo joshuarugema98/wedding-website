@@ -35,7 +35,7 @@ npm start
 - `src/lib/photos.ts`: content-hashed static photo imports, descriptions, and collage focal points.
 - `src/components/about-us.tsx`: The Things You Might Not Know, a list of all five questions and full answers.
 - `src/lib/about-us.ts`: the supplied Q&As and speaker labels.
-- `src/components/navigation.tsx`: floating monogram and Menu control, opening a numbered side panel.
+- `src/components/navigation.tsx`: desktop monogram and Menu control; mobile hamburger over the hero becomes a fixed, swipeable section bar as soon as scrolling begins. Both open the existing numbered side panel.
 - `src/components/hero.tsx`: text overlapping the cover photo's linen fade from the left on desktop. On mobile, the bottom-anchored photo clips the upper 15% of its previous view without increasing its scale; larger names overlap the shorter frame by 48px, with the date and scripture flowing below. The mobile fade starts at 70% of the visible frame and reaches solid linen at 98%.
 - `src/app/globals.css`: shared design tokens and responsive styles.
 - `public/calendar/`: calendars with UTC timestamps matching Kigali local times.
@@ -43,9 +43,9 @@ npm start
 
 The active image paths are recorded in `docs/images.md`. The hero uses the locally
 selected `public/images/cover.JPG`. A separate carousel between Our Story and the
-questions uses the five supplied photos. Desktop shows all five in an asymmetric
+questions uses the six supplied photos. Desktop shows all six in an asymmetric
 collage. Clicking a desktop photo opens its uncropped view in a modal lightbox;
-edge arrows and keyboard arrows browse all five. Escape, the close button, or
+edge arrows and keyboard arrows browse all six. Escape, the close button, or
 the surrounding backdrop closes it and returns focus to the clicked photo.
 Mobile keeps a fixed-height stage showing the full photo over a blurred
 decorative copy, with translucent arrows at the left and right edges.
@@ -61,15 +61,23 @@ than displaying an activity grid. Travel and Explore Rwanda appear last, after
 the wedding details and phone-only contacts. The mobile photo carousel wraps
 in both directions, with no autoplay or animation. The questions use a two-column
 layout on desktop and stack above their answers on mobile.
+Mobile navigation uses a linen hamburger square over the hero, without the desktop
+header's reserved top space. As soon as scrolling starts, it becomes a full-width
+linen bar at 85% background opacity with
+a pinned hamburger, horizontally scrollable section links, and a green underline
+tracking the current section. Active links stay visible without moving the page
+vertically. Short mobile labels keep the full story and registry titles in the
+menu; desktop navigation is unchanged. All changes between states are instant.
 View map uses text links; calendar buttons are omitted.
 When & where uses centred green event cards with linen text on the linen canvas,
 side by side on desktop and stacked on mobile. Short invitation introductions
 welcome guests to each celebration. View map links with external arrows sit at
 the bottom of each card. Dates, times, venues, and addresses
 are preserved; View map opens the corresponding venue in Google Maps.
-The Gift Registry section includes a welcome note and a direct contact link for
-monetary gifts. Registry availability shows a coming-soon message. Set
-`wedding.registryUrl` in `src/lib/wedding.ts` to display the external registry link.
+The Gift Registry section uses the supplied invitation wording, asks guests not
+to bring physical gifts because the couple will return to Canada, and links
+directly to their MyRegistry gift list. Monetary gifts link to the contact section.
+Edit `wedding.registryUrl` in `src/lib/wedding.ts` to change the registry link.
 
 Directions open Google Maps. Contacts use tap-to-call links. Retained calendar files
 include the Gusaba and both wedding-day moments. No RSVP submission service is

@@ -3,6 +3,7 @@ import photo2 from '../../public/images/22.jpg'
 import photo3 from '../../public/images/33.jpg'
 import photo4 from '../../public/images/4.jpg'
 import photo5 from '../../public/images/5.jpg'
+import photo6 from '../../public/images/6.jpg'
 
 // Static imports give replacements a new content-hashed URL automatically.
 export const couplePhotos = [
@@ -30,5 +31,10 @@ export const couplePhotos = [
     image: photo5,
     alt: 'A black-and-white photograph of Joshua and Sandrine laughing together on a beach',
     collagePosition: '50% 62%',
+  },
+  {
+    image: photo6,
+    alt: 'Joshua and Sandrine laughing as they run along the beach in white',
+    collagePosition: '50% 20%',
   },
 ] as const
